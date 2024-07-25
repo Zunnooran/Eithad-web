@@ -18,19 +18,32 @@ export const About = () => {
             <img src={AboutUsImg} className='w-full h-auto' alt='About us' />
           </div>
           <div className='w-full md:w-1/2'>
-            <div className='px-6 pb-6 md:pt-0 pt-6'>
+            <div className='md:px-6 px-0 pb-6 md:pt-0 pt-6'>
               <Heading heading='About Us' />
-              <p className='mb-6'>{data?.paragraph}</p>
-              <h3 className='text-2xl font-semibold mb-4'>Why Choose Us?</h3>
+              <p className='mb-6 md:text-base text-sm '>{data?.paragraph}</p>
+              <h3 className='md:text-2xl text-lg font-semibold mb-4'>Why Choose Us?</h3>
               <div className='flex flex-wrap'>
                 <div className='w-full lg:w-1/2'>
                   <ul className='list-disc list-inside'>
-                    {data ? data.Why.map((d, i) => <li key={`${d}-${i}`}>{d}</li>) : 'loading'}
+                    {data
+                      ? data.Why.map((d, i) => (
+                          <li className='md:text-base text-sm' key={`${d}-${i}`}>
+                            {d}
+                          </li>
+                        ))
+                      : 'loading'}
                   </ul>
                 </div>
                 <div className='w-full lg:w-1/2'>
                   <ul className='list-disc list-inside'>
-                    {data ? data.Why2.map((d, i) => <li key={`${d}-${i}`}> {d}</li>) : 'loading'}
+                    {data
+                      ? data.Why2.map((d, i) => (
+                          <li className='md:text-base text-sm' key={`${d}-${i}`}>
+                            {' '}
+                            {d}
+                          </li>
+                        ))
+                      : 'loading'}
                   </ul>
                 </div>
               </div>

@@ -32,23 +32,28 @@ function ContactUs() {
     <div id='contact'>
       <Heading className='flex flex-centered' heading='Contact Us' />
       {/* <div className='flex bg-slate-500 p-12'> */}
-      <div className='flex gap-4 my-8'>
-        <div className='flex flex-col gap-4 w-2/5'>
+      <div className='flex md:flex-row flex-col gap-4 my-8'>
+        <div className='flex flex-col gap-4 md:w-2/5 w-full'>
           {data.map((d) => (
-            <div key={d.heading} className='flex flex-col flex-centered gap-2'>
-              <div className='w-8 h-8'> {d.icon} </div>
-              <h2>{d.heading}</h2>
-              <p className='max-w-40'>{d.text}</p>
+            <div
+              key={d.heading}
+              className='flex md:flex-col flex-row md:justify-center justify-start items-center md:gap-2 gap-4'
+            >
+              <div className='flex flex-col flex-centered'>
+                <div className='w-8 h-8'> {d.icon} </div>
+                <h2 className='md:text-base text-sm'>{d.heading}</h2>
+              </div>
+              <p className='max-w-40 md:text-base text-sm'>{d.text}</p>
             </div>
           ))}
         </div>
-        <div className='border-r-2 border-[#2d2d2d]' />
+        <div className='md:border-r-2 border-b-2 border-[#2d2d2d]' />
         <div className='w-full'>
           <Form
             layout='horizontal'
             onValuesChange={onFormLayoutChange}
             // style={{ maxWidth: 600 }}
-            className='w-full p-5'
+            className='w-full md:p-5'
           >
             <Form.Item>
               <Input placeholder='First Name' />
@@ -63,7 +68,7 @@ function ContactUs() {
               <TextArea rows={4} placeholder='write your query here!' />
             </Form.Item>
             <Form.Item>
-              <Button className='py-2 px-8'>Submit</Button>
+              <Button className='md:py-2 py-1 md:px-8'>Submit</Button>
             </Form.Item>
           </Form>
         </div>
